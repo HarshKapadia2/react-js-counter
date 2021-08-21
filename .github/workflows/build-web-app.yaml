@@ -1,0 +1,111 @@
+name: Publish to GitHub Pages
+on:
+    push:
+        branches:
+            - "main"
+        paths:
+            - ".github/workflows/**"
+            - "public/**"
+            - "src/**"
+            - ".env.production"
+            - "package.json"
+            - "package-lock.json"
+    pull_request:
+        branches:
+            - "main"
+        paths:
+            - ".github/workflows/**"
+            - "public/**"
+            - "src/**"
+            - ".env.production"
+            - "package.json"
+            - "package-lock.json"
+    workflow_dispatch:
+
+jobs:
+    build-website:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              run: |
+                  # Setup repository
+                  git init .
+                  git remote add origin "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git"
+
+                  # Fetch and checkout code
+                  BRANCH_NAME="branch";
+                  case "$GITHUB_REF" in
+                      refs/heads/*)
+                          BRANCH_NAME="${GITHUB_REF#refs/heads/}";
+                      pull/*/head)
+                          BRANCH_NAME="${GITHUB_REF#pull/}";
+                          BRANCH_NAME="${GITHUB_REF%/head}";
+                          BRANCH_NAME="pull-request-${BRANCH_NAME}";
+                  esac
+
+                  git fetch origin "${GITHUB_REF}:${BRANCH_NAME}" --depth 1;
+                  git switch "$BRANCH_NAME";
+
+                  # Switch to gh-pages if on main
+                  if [ "$BRANCH_NAME" = "main" ]; then
+                      # Try to fetch gh-pages branch
+                      if ! git fetch origin gh-pages; then
+                          # If the branch doesn't exist, then create an orphan branch
+                          echo "Could not find gh-pages branch, creating as orphan"
+                          git switch --orphan gh-pages
+                      else
+                          # Else, switch to the branch
+                          echo "Switching to gh-pages branch"
+                          git switch gh-pages
+                      fi
+                      
+                      # Delete all old files
+                      rm -rf ./*
+
+                      # Get latest source and buildscript
+                      git restore -s "$BRANCH_NAME" public src .env.production package-lock.json package.json
+                  fi
+
+            - name: Build web app
+              env:
+                  CI: false # To prevent taking warnings as errors
+              run: |
+                  # Build page
+                  sudo apt-get update
+                  sudo apt-get install nodejs npm
+                  mkdir react-js-counter
+                  mv public ./react-js-counter
+                  mv src ./react-js-counter
+                  mv package-lock.json ./react-js-counter
+                  mv package.json ./react-js-counter
+                  mv .env.production ./react-js-counter
+                  cd react-js-counter
+                  npm install
+                  npm run build
+                  cd build
+                  mv * ../..
+                  cd ../..
+                  rm -rf react-js-counter
+
+            - name: Deploy to GitHub Pages
+              run: |
+                  # Skip deploy if not on main
+                  BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+                  if [ "${BRANCH_NAME}" != "main" ]; then
+                    echo "Skipping deployment since branch is '${BRANCH_NAME}', not main"
+                    exit 0
+                  fi
+
+                  # Add modified files
+                  git add .
+
+                  # Set user
+                  git config user.name  "Auto deploy GitHub Pages"
+                  git config user.email "cd-deploy-gh-pages@bot"
+
+                  # Commit changes
+                  git commit -m "Deploy to pages: $(date +'%Y-%m-%d %T') UTC"
+
+                  # Remove 'https://' from beginning of REPOSITORY_URL
+                  REPOSITORY_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git"
+                  git push "https://X-Access-Token:${{ secrets.GITHUB_TOKEN }}@${REPOSITORY_URL:8}" gh-pages
