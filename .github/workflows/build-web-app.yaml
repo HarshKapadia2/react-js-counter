@@ -36,7 +36,7 @@ jobs:
                   BRANCH_NAME="branch";
                   case "$GITHUB_REF" in
                       refs/heads/*)
-                          BRANCH_NAME="${GITHUB_REF#refs/heads/}";
+                          BRANCH_NAME="${GITHUB_REF#refs/heads/}";;
                       pull/*/head)
                           BRANCH_NAME="${GITHUB_REF#pull/}";
                           BRANCH_NAME="${GITHUB_REF%/head}";
