@@ -1,0 +1,28 @@
+h1 {
+	font-size: 60px;
+	text-align: center;
+	font-family: "Times New Roman", Times, serif;
+	color: #791e1e;
+}
+#flex-body {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	font-family: "Times New Roman", Times, serif;
+}
+
+#flex-container {
+	height: 20vh;
+	width: 100vw;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 10px;
+	border-color: #bd7371;
+	flex-wrap: 3;
+}

@@ -1,0 +1,20 @@
+#initial-container {
+	position: relative;
+	top: 100px;
+}
+.init-btn {
+	width: 150px;
+	background-color: #b24242;
+	color: #ffffff;
+	border-radius: 5px;
+	border: none;
+	padding: 12px;
+	cursor: pointer;
+}
+#text-field {
+	position: relative;
+	right: 5px;
+	height: 40px;
+	border: solid #b24242 2px;
+	border-radius: 5px;
+}

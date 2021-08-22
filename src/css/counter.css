@@ -1,0 +1,70 @@
+#counter {
+	display: flex;
+	border: solid #b24242 2px;
+	border-radius: 10px;
+	margin: 5em 0;
+}
+
+#counter-val {
+	background-color: #fbe8e8;
+	height: 56px;
+	width: 60px;
+	border: none;
+	border-left: solid #b24242 2px;
+	border-right: solid #b24242 2px;
+	color: #b24242;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 21px;
+	font-weight: bold;
+}
+
+#decrement-btn {
+	background-color: #ffffff;
+	border-radius: 8px 0 0 8px;
+	border-color: #b24242;
+	text-align: center;
+	border: none;
+	height: 56px;
+	width: 60px;
+	font-size: inherit;
+	cursor: pointer;
+	color: #b24242;
+}
+
+#increment-btn {
+	border: none;
+	background-color: #b24242;
+	height: 56px;
+	width: 60px;
+	border-radius: 0 8px 8px 0;
+	cursor: pointer;
+	color: #ffffff;
+	text-align: center;
+	font-size: inherit;
+}
+
+#increment {
+	width: 14px;
+	height: 29px;
+	padding-left: 22px;
+	padding-bottom: 33px;
+}
+
+#decrement {
+	width: 7px;
+	height: 29px;
+	padding-left: 24px;
+	padding-bottom: 35px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
