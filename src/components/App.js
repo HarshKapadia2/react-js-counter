@@ -43,6 +43,25 @@ function App() {
 			/>
 
 			<Counter maxVal={maxVal} initialVal={initialVal} />
+
+			<footer>
+				Made by{" "}
+				<a
+					href="https://harshkapadia.bio.link"
+					rel="noreferrer"
+					target="_blank"
+				>
+					Harsh Kapadia
+				</a>{" "}
+				|{" "}
+				<a
+					href="https://github.com/HarshKapadia2/react-js-counter"
+					rel="noreferrer"
+					target="_blank"
+				>
+					GitHub repo
+				</a>
+			</footer>
 		</main>
 	);
 }

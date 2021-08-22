@@ -37,6 +37,17 @@ input {
 	font-size: 18px;
 }
 
+footer {
+	text-align: center;
+	margin: 1em;
+}
+
+a {
+	color: #a54946;
+	text-underline-offset: 4px;
+	text-decoration-thickness: 1px;
+}
+
 @media screen and (max-width: 1000px) {
 	main {
 		width: 80vw;
