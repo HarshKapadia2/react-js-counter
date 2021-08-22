@@ -6,11 +6,13 @@ const Initializer = ({ receiveMaxVal, receiveInitialVal }) => {
 	const maxValInput = useRef();
 
 	const sendMaxVal = () => {
-		receiveMaxVal(Number(maxValInput.current.value));
+		if (maxValInput.current.value === "") receiveMaxVal(1000);
+		else receiveMaxVal(Number(maxValInput.current.value));
 	};
 
 	const sendInitialVal = () => {
-		receiveInitialVal(Number(initialInput.current.value));
+		if (initialInput.current.value === "") receiveInitialVal(1);
+		else receiveInitialVal(Number(initialInput.current.value));
 	};
 
 	return (
