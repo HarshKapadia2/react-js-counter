@@ -1,0 +1,18 @@
+#initializer {
+	margin: 2em 0;
+}
+
+.initializer-input-wrapper {
+	margin: 1em 0;
+}
+
+@media screen and (max-width: 600px) {
+	.initializer-input-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.initializer-input-wrapper input {
+		margin: 1em 0;
+	}
+}

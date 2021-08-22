@@ -14,16 +14,30 @@ const Initializer = ({ receiveMaxVal, receiveInitialVal }) => {
 	};
 
 	return (
-		<div id="initialization">
-			<input id="initial-input" ref={initialInput}></input>
-			<button className="btn" onClick={sendInitialVal}>
-				Set Initial Value
-			</button>
+		<div id="initializer">
+			<div className="initializer-input-wrapper">
+				<input
+					id="initial-input"
+					ref={initialInput}
+					type="number"
+					placeholder="Enter initial value"
+				></input>
+				<button className="btn" onClick={sendInitialVal}>
+					Set Initial Value
+				</button>
+			</div>
 
-			<input id="max-val-input" ref={maxValInput}></input>
-			<button className="btn" onClick={sendMaxVal}>
-				Set Maximum Value
-			</button>
+			<div className="initializer-input-wrapper">
+				<input
+					id="max-val-input"
+					ref={maxValInput}
+					type="number"
+					placeholder="Enter maximum value"
+				></input>
+				<button className="btn" onClick={sendMaxVal}>
+					Set Maximum Value
+				</button>
+			</div>
 		</div>
 	);
 };

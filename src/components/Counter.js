@@ -30,7 +30,12 @@ const Counter = ({ maxVal, initialVal }) => {
 
 	return (
 		<div id="counter">
-			<button id="decrement-btn" title="Decrement" onClick={decrement}>
+			<button
+				id="decrement-btn"
+				className="btn"
+				title="Decrement"
+				onClick={decrement}
+			>
 				-
 			</button>
 
@@ -43,7 +48,12 @@ const Counter = ({ maxVal, initialVal }) => {
 				onChange={inputChangeVal}
 			></input>
 
-			<button id="increment-btn" title="Increment" onClick={increment}>
+			<button
+				id="increment-btn"
+				className="btn"
+				title="Increment"
+				onClick={increment}
+			>
 				+
 			</button>
 		</div>
