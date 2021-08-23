@@ -38,4 +38,4 @@ Please be mindful of the [Code of Conduct](CODE_OF_CONDUCT.md) while interacting
 
 ## Further Help
 
-If any further help is needed, do not hesitate to contact the author (Harsh Kapadia) via [OTC](https://otc.zulipchat.com), [Twitter](https://twitter.com/harshgkapadia), [LinkedIn](https://www.linkedin.com/in/harshgkapadia/) or e-mail (harshgkapadia@gmail.com). An [issue](https://github.com/HarshKapadia2/preview-markdown/issues) can be raised as well.
+If any further help is needed, do not hesitate to contact the author (Harsh Kapadia) via [OTC](https://otc.zulipchat.com), [Twitter](https://twitter.com/harshgkapadia), [LinkedIn](https://www.linkedin.com/in/harshgkapadia/) or e-mail (harshgkapadia@gmail.com). An [issue](https://github.com/HarshKapadia2/react-js-counter/issues) can be raised as well.
