@@ -1,14 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../css/counter.css";
 
 const Counter = ({ maxVal, initialVal }) => {
-	const counterValSpan = useRef();
-
 	const [val, setVal] = useState(initialVal);
-
-	useEffect(() => {
-		counterValSpan.current.value = String(val);
-	}, [val]);
 
 	useEffect(() => {
 		setVal(initialVal);
@@ -22,10 +16,6 @@ const Counter = ({ maxVal, initialVal }) => {
 	const decrement = () => {
 		if (val <= maxVal) setVal(val - 1);
 		else setVal(maxVal);
-	};
-
-	const inputChangeVal = () => {
-		setVal(Number(counterValSpan.current.value));
 	};
 
 	return (
@@ -43,9 +33,9 @@ const Counter = ({ maxVal, initialVal }) => {
 				type="number"
 				title="Counter value"
 				id="counter-val"
+				value={val}
 				max={maxVal}
-				ref={counterValSpan}
-				onChange={inputChangeVal}
+				onChange={(e) => setVal(Number(e.target.value))}
 			></input>
 
 			<button
