@@ -13,11 +13,6 @@ h1 {
 	margin: 2em 0;
 }
 
-li {
-	list-style-position: inside;
-	margin: 1em 0;
-}
-
 .btn {
 	border: none;
 	background-color: #a54946;
