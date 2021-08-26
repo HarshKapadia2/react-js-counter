@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-js-counter/static/css/main.af821441.chunk.css",
-    "main.js": "/react-js-counter/static/js/main.8a32a35c.chunk.js",
+    "main.css": "/react-js-counter/static/css/main.d3bca0cf.chunk.css",
+    "main.js": "/react-js-counter/static/js/main.4f98549f.chunk.js",
     "runtime-main.js": "/react-js-counter/static/js/runtime-main.855b86fe.js",
     "static/js/2.93a4852e.chunk.js": "/react-js-counter/static/js/2.93a4852e.chunk.js",
     "index.html": "/react-js-counter/index.html",
@@ -10,7 +10,7 @@
   "entrypoints": [
     "static/js/runtime-main.855b86fe.js",
     "static/js/2.93a4852e.chunk.js",
-    "static/css/main.af821441.chunk.css",
-    "static/js/main.8a32a35c.chunk.js"
+    "static/css/main.d3bca0cf.chunk.css",
+    "static/js/main.4f98549f.chunk.js"
   ]
 }
