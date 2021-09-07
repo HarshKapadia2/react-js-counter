@@ -6,7 +6,7 @@
 
 #increment-btn {
 	margin: 0;
-	border-radius: 0 10px 10px 0;
+	border-radius: 0 7px 7px 0;
 	font-size: inherit;
 }
 
@@ -14,7 +14,7 @@
 	margin: 0;
 	background-color: white;
 	color: #a54946;
-	border-radius: 10px 0 0 10px;
+	border-radius: 7px 0 0 7px;
 	font-size: inherit;
 }
 
