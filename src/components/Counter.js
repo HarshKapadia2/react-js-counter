@@ -2,20 +2,17 @@ import { useState, useEffect } from "react";
 import "../css/counter.css";
 
 const Counter = ({ maxVal, initialVal }) => {
-	const [val, setVal] = useState(initialVal);
+	const [val, setVal] = useState(initialVal.toString());
 
 	useEffect(() => {
-		setVal(initialVal);
+		setVal(initialVal.toString());
 	}, [initialVal]);
 
-	const increment = () => {
-		if (val < maxVal) setVal(val + 1);
-		else setVal(maxVal);
-	};
-
-	const decrement = () => {
-		if (val <= maxVal) setVal(val - 1);
-		else setVal(maxVal);
+	const offsetVal = (offset) => {
+		let intVal = parseInt(val);
+		if ((intVal + offset) <= maxVal) intVal += offset;
+		else intVal = maxVal;
+		setVal(intVal.toString());
 	};
 
 	return (
@@ -24,7 +21,7 @@ const Counter = ({ maxVal, initialVal }) => {
 				id="decrement-btn"
 				className="btn"
 				title="Decrement"
-				onClick={decrement}
+				onClick={() => offsetVal(-1)}
 			>
 				-
 			</button>
@@ -35,14 +32,14 @@ const Counter = ({ maxVal, initialVal }) => {
 				id="counter-val"
 				value={val}
 				max={maxVal}
-				onChange={(e) => setVal(Number(e.target.value))}
+				onChange={(e) => setVal(e.target.value)}
 			></input>
 
 			<button
 				id="increment-btn"
 				className="btn"
 				title="Increment"
-				onClick={increment}
+				onClick={() => offsetVal(+1)}
 			>
 				+
 			</button>
