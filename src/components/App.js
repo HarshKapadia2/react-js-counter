@@ -4,23 +4,23 @@ import Counter from "./Counter";
 import Initializer from "./Initializer";
 
 function App() {
-	const [maxVal, setMaxVal] = useState(1000);
-	const [initialVal, setInitialVal] = useState(1);
-
-	const receiveMaxVal = (newMaxVal) => setMaxVal(newMaxVal);
-
-	const receiveInitialVal = (newInitialVal) => setInitialVal(newInitialVal);
+	const [maxVal, setMaxVal] = useState("1000");
+	const [initialVal, setInitialVal] = useState("1");
+	const [nonce, setNonce] = useState(false);
 
 	return (
 		<main>
 			<h1>Counter</h1>
 
 			<Initializer
-				receiveMaxVal={receiveMaxVal}
-				receiveInitialVal={receiveInitialVal}
+				receiveMaxVal={(newMaxVal) => setMaxVal(newMaxVal)}
+				receiveInitialVal={(newInitialVal) => {
+					setInitialVal(newInitialVal);
+					setNonce(!nonce);
+				}}
 			/>
 
-			<Counter maxVal={maxVal} initialVal={initialVal} />
+			<Counter maxVal={maxVal} initialVal={initialVal} nonce={nonce} />
 
 			<footer>
 				Made by{" "}

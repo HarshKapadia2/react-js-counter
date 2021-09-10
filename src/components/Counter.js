@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import "../css/counter.css";
 
-const Counter = ({ maxVal, initialVal }) => {
+const Counter = ({ maxVal, initialVal, nonce }) => {
 	const [val, setVal] = useState(initialVal.toString());
 
 	useEffect(() => {
 		setVal(initialVal.toString());
-	}, [initialVal]);
+	}, [initialVal, nonce]);
 
 	const offsetVal = (offset) => {
 		let intVal = parseInt(val);
-		if ((intVal + offset) <= maxVal) intVal += offset;
+		if (intVal + offset <= maxVal) intVal += offset;
 		else intVal = maxVal;
 		setVal(intVal.toString());
 	};
